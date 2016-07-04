@@ -1,0 +1,11 @@
+node_modules
+.idea
+*.swp
+*log*
+*.map
+*.component.js
+*.service.js
+*.directive.js
+*Validators.js
+boot.js
+.idea/vcs.xml
