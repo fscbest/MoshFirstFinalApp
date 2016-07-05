@@ -16,7 +16,7 @@ import {UsersComponent} from './users.component';
 ])
 @Component({
     selector: 'my-app',
-    templateUrl: '/app/app.component.html',
+    templateUrl: '/app/app.template.html',
     directives: [ROUTER_DIRECTIVES, NavBarComponent, PostsComponent, UsersComponent]
 })
 export class AppComponent {
