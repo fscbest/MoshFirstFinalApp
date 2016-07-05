@@ -12,6 +12,6 @@ export class NavBarComponent {
 
     isCurrentRoute(route){
         var instruction = this._router.generate(route);
-        return this._router.isRouteActive(instruction); 
+        return this._router.isRouteActive(instruction);
    }
 }
