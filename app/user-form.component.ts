@@ -1,6 +1,8 @@
 import {Component} from 'angular2/core';
 import {ControlGroup, FormBuilder} from 'angular2/common';
-import {Validators} from "angular2/common";
+import {Validators} from 'angular2/common';
+
+import {BasicValidators} from './basicValidators';
 
 
 @Component({
@@ -11,8 +13,11 @@ export class UserFormComponent{
 
     constructor(fb: FormBuilder) {
 		this.form = fb.group({
-			name: [],
-			email: ['', Validators.required],
+			name: ['', Validators.required],
+			email: ['', Validators.compose([
+				Validators.required,
+				BasicValidators.emailValidator
+			])],
 			phone: [],
 			address: fb.group({
 				street: [],
