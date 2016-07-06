@@ -17,7 +17,10 @@ export class UserFormComponent implements OnInit{
 
 	ngOnInit(){
 		this.form = this._fb.group({
-			name: ['', Validators.required],
+			name: ['', Validators.compose([
+				Validators.required,
+				Validators.minLength(3)
+			])],
 			email: ['', Validators.compose([
 				Validators.required,
 				BasicValidators.emailValidator
