@@ -1,10 +1,10 @@
 import {Component} from 'angular2/core';
 import {ControlGroup, FormBuilder} from 'angular2/common';
+import {Validators} from "angular2/common";
+
 
 @Component({
     templateUrl: '/app/user-form.template.html'
-    //directives: [RouterLink]
-
 })
 export class UserFormComponent{
     form: ControlGroup;
@@ -12,7 +12,7 @@ export class UserFormComponent{
     constructor(fb: FormBuilder) {
 		this.form = fb.group({
 			name: [],
-			email: [],
+			email: ['', Validators.required],
 			phone: [],
 			address: fb.group({
 				street: [],

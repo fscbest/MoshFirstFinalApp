@@ -6,37 +6,42 @@
                 <legend>User</legend>
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input ngControl="name" id="name" type="text" class="form-control" required>
+                    <input ngControl="name" id="name" #name="ngForm" type="text" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input ngControl="email" id="email" type="text" class="form-control" required>
+                    <input ngControl="email" id="email" #email="ngForm" type="text" class="form-control">
+                    <div *ngIf="email.touched && email.errors">
+                        <div *ngIf="email.errors.required" class="alert alert-danger">
+                            Email is required.
+                        </div>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="phone">Phone</label>
-                    <input ngControl="phone" id="phone" type="text" class="form-control" required>
+                    <input ngControl="phone" id="phone" type="text" class="form-control" >
                 </div>
             </fieldset>
             <fieldset ngControlGroup="address">
                 <legend>Address</legend>
                 <div class="form-group">
                     <label for="street">Street</label>
-                    <input ngControl="street" id="street" type="text" class="form-control" required>
+                    <input ngControl="street" id="street" type="text" class="form-control" >
                 </div>
                 <div class="form-group">
                     <label for="suite">Suite</label>
-                    <input ngControl="suite" id="suite" type="text" class="form-control" required>
+                    <input ngControl="suite" id="suite" type="text" class="form-control" >
                 </div>
                 <div class="form-group">
                     <label for="city">City</label>
-                    <input ngControl="city" id="city" type="text" class="form-control" required>
+                    <input ngControl="city" id="city" type="text" class="form-control" >
                 </div>
                 <div class="formgroup">
                     <label for="zipcode">ZipCode</label>
-                    <input ngControl="zipcode" id="zipcode" type="text" class="form-control" required>
+                    <input ngControl="zipcode" id="zipcode" type="text" class="form-control" >
                 </div>
             </fieldset>
-            <button  type="submit"class="btn btn-primary">Save</button>
+            <button  type="submit"class="btn btn-primary" [disabled]="!form.valid">Save</button>
         </form>
     </div>
 </div>
