@@ -4,11 +4,10 @@ export class BasicValidators{
     static emailValidator(control: Control){
         var EMAIL_REGEXP = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
 
-        if (control.value != "" && (control.value.length <= 5 || !EMAIL_REGEXP.test(control.value))) {
-            return {emailValidator: true};
-        }
+        var valid =  ((control.value != "") && (control.value.length <= 5));
+        valid = EMAIL_REGEXP.test(control.value);
 
-        return null;
+        return valid ? null : {emailValidator: true};
     }
 
 }
