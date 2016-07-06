@@ -1,0 +1,42 @@
+<h1>Add a User</h1>
+<div class="row">
+    <div class="col-md-6 well">
+        <form [ngFormModel]="form">
+            <fieldset>
+                <legend>User</legend>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input ngControl="name" id="name" type="text" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input ngControl="email" id="email" type="text" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input ngControl="phone" id="phone" type="text" class="form-control" required>
+                </div>
+            </fieldset>
+            <fieldset ngControlGroup="address">
+                <legend>Address</legend>
+                <div class="form-group">
+                    <label for="street">Street</label>
+                    <input ngControl="street" id="street" type="text" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="suite">Suite</label>
+                    <input ngControl="suite" id="suite" type="text" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <input ngControl="city" id="city" type="text" class="form-control" required>
+                </div>
+                <div class="formgroup">
+                    <label for="zipcode">ZipCode</label>
+                    <input ngControl="zipcode" id="zipcode" type="text" class="form-control" required>
+                </div>
+            </fieldset>
+            <button  type="submit"class="btn btn-primary">Save</button>
+        </form>
+    </div>
+</div>

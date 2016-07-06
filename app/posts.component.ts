@@ -1,11 +1,9 @@
-import {Component} from 'angular2/core';
-import {RouterLink} from 'angular2/router';
+import {Component, OnInit} from 'angular2/core';
 
 @Component({
     template: `
         <h1>Posts</h1>
-    `,
-    directives: [RouterLink]
+    `
 })
 export class PostsComponent{
 }

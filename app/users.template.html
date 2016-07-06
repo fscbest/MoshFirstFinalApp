@@ -1,4 +1,7 @@
 <h1>Users</h1>
+<p>
+    <a [routerLink]="['NewUser']" class="btn btn-primary">Add User</a>
+</p>
 <table class="table table-bordered">
     <thead>
         <tr>
@@ -8,6 +11,7 @@
             <th>Delete</th>
         </tr>
     </thead>
+
     <tbody>
         <tr *ngFor="#user of users">
             <th>{{user.name}}</th>
