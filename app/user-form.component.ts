@@ -1,9 +1,10 @@
-import {CanDeactivate, Router} from "angular2/router";
+import {CanDeactivate, Router, RouteParams} from "angular2/router";
 import {Component, OnInit} from 'angular2/core';
 import {ControlGroup, FormBuilder} from 'angular2/common';
 import {Validators} from 'angular2/common';
 
 import {BasicValidators} from './basicValidators';
+import {User} from './user';
 import {UsersService} from './users.service';
 
 
@@ -15,9 +16,13 @@ import {UsersService} from './users.service';
 })
 export class UserFormComponent implements OnInit, CanDeactivate{
     form: ControlGroup;
+	title: String;
+	user = new User(); //or user = { address: {} };
 
-    constructor(private _fb: FormBuilder, private _router: Router, private _usersService: UsersService) {
-
+    constructor(private _fb: FormBuilder,
+				private _router: Router,
+				private _usersService: UsersService,
+				private _routeParams: RouteParams) {
 	}
 
 	ngOnInit(){
@@ -38,6 +43,21 @@ export class UserFormComponent implements OnInit, CanDeactivate{
 				zipcode: []
 			})
 		});
+
+		var id = this._routeParams.get("id");
+		this.title = id ? "Edit User" : "New User";
+
+		if (!id)
+			return;
+
+		this._usersService.getUser(id)
+			.subscribe(
+				user => this.user = user,
+				response => {
+					if (response.status == 404) {
+						this._router.navigate(['NotFound']);
+					}
+				});
 	}
 
 	routerCanDeactivate(next, previous){

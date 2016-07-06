@@ -20,4 +20,8 @@ export class UsersService{
 			.map(res => res.json());
 	}
 
+    getUser(userId){
+		return this._http.get(this._url + "/" + userId)
+			.map(res => res.json());
+	}
 }

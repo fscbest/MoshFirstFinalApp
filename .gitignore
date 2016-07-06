@@ -9,3 +9,4 @@ node_modules
 *Validators.js
 boot.js
 .idea/vcs.xml
+app/user.js
