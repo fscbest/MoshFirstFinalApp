@@ -40,12 +40,12 @@ export class PostsComponent implements OnInit {
         this.loadPosts();
     }
 
-    loadUsers(){
+    private loadUsers(){
         this._userService.getUsers()
             .subscribe(users => this.users = users);
     }
 
-    loadPosts(filter?){
+    private loadPosts(filter?){
         this.isPostsLoading = true;
 
         this._postsService.getPosts(filter)
