@@ -7,6 +7,7 @@ import {PostsService} from './posts.service';
 })
 export class PostsComponent implements OnInit{
     posts: any[];
+    isLoading = true;
 
     constructor(private _postsService: PostsService){
 
@@ -16,6 +17,7 @@ export class PostsComponent implements OnInit{
         this._postsService.getPosts()
             .subscribe(posts => {
                 this.posts = posts;
+                this.isLoading = false;
             });
     }
 }
