@@ -3,14 +3,14 @@ import {Component, OnInit} from 'angular2/core';
 import {ControlGroup, FormBuilder} from 'angular2/common';
 import {Validators} from 'angular2/common';
 
-import {BasicValidators} from './basicValidators';
+import {BasicValidators} from '../shared/basicValidators';
 import {User} from './user';
 import {UsersService} from './users.service';
 
 
 
 @Component({
-    templateUrl: '/app/user-form.template.html',
+    templateUrl: '/app/users/user-form.template.html',
 	providers: [UsersService]
 
 })
