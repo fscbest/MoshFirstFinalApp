@@ -24,7 +24,7 @@ import {PostsService} from './posts.service';
 export class PostsComponent implements OnInit {
     posts:any[];
     currentPost;
-    isLoading = true;
+    isPostsLoading = true;
     isCommentsLoading = true;
 
     constructor(private _postsService:PostsService) {
@@ -37,7 +37,7 @@ export class PostsComponent implements OnInit {
                 posts => this.posts = posts,
                 null,
                 () => {
-                    this.isLoading = false;
+                    this.isPostsLoading = false;
                 });
     }
 
