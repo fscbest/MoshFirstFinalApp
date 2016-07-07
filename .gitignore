@@ -12,3 +12,5 @@ boot.js
 app/user.js
 app/users/user.js
 app/users/user.js
+*.d.ts
+typings

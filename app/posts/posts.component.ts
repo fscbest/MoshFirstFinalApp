@@ -1,4 +1,4 @@
-import {Component, OnInit} from 'angular2/core';
+import {Component, OnInit} from '@angular/core';
 
 import {SpinnerComponent} from '../shared/spinner.component';
 
@@ -54,7 +54,7 @@ export class PostsComponent implements OnInit {
             .subscribe(
                 posts => {
                     this.posts = posts;
-                    this.pagedPosts = _.take(this.posts, this.pageSize); //this.getPostsInPage(1);
+                        this.pagedPosts = _.take(this.posts, this.pageSize); //this.getPostsInPage(1);
                 },
                 null,
                 () => {

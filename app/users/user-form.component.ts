@@ -1,7 +1,7 @@
-import {CanDeactivate, Router, RouteParams} from "angular2/router";
-import {Component, OnInit} from 'angular2/core';
-import {ControlGroup, FormBuilder} from 'angular2/common';
-import {Validators} from 'angular2/common';
+import {CanDeactivate, Router, RouteParams} from "@angular/router-deprecated";
+import {Component, OnInit} from '@angular/core';
+import {ControlGroup, FormBuilder} from '@angular/common';
+import {Validators} from '@angular/common';
 
 import {BasicValidators} from '../shared/basicValidators';
 import {User} from './user';
@@ -60,7 +60,7 @@ export class UserFormComponent implements OnInit, CanDeactivate{
 				});
 	}
 
-	routerCanDeactivate(next, previous){
+	routerCanDeactivate(){
 		if(this.form.dirty){
 			return confirm("The form is changed. Are you sure?");
 		}
