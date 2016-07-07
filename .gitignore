@@ -10,3 +10,7 @@ node_modules
 boot.js
 .idea/vcs.xml
 app/user.js
+app/users/user.js
+app/users/user.js
+*.d.ts
+typings

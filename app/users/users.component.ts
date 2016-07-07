@@ -1,10 +1,10 @@
-import {Component, OnInit} from 'angular2/core';
-import {RouterLink} from 'angular2/router';
+import {Component, OnInit} from '@angular/core';
+import {RouterLink} from '@angular/router-deprecated';
 
 import {UsersService} from './users.service';
 
 @Component({
-    templateUrl: '/app/users.template.html',
+    templateUrl: '/app/users/users.template.html',
     providers: [UsersService],
     directives: [RouterLink]
 })

@@ -1,14 +1,14 @@
-import {Component, OnInit} from 'angular2/core';
+import {Component, OnInit} from '@angular/core';
 
-import {SpinnerComponent} from './spinner.component';
+import {SpinnerComponent} from '../shared/spinner.component';
 
-import {PaginationComponent} from './pagination.component';
+import {PaginationComponent} from '../shared/pagination.component';
 import {PostsService} from './posts.service';
-import {UsersService} from './users.service';
+import {UsersService} from '../users/users.service';
 
 
 @Component({
-    templateUrl: '/app/posts.template.html',
+    templateUrl: '/app/posts/posts.template.html',
     providers: [PostsService, UsersService],
     directives: [SpinnerComponent, PaginationComponent],
     styles: [`
@@ -54,7 +54,7 @@ export class PostsComponent implements OnInit {
             .subscribe(
                 posts => {
                     this.posts = posts;
-                    this.pagedPosts = _.take(this.posts, this.pageSize); //this.getPostsInPage(1);
+                        this.pagedPosts = _.take(this.posts, this.pageSize); //this.getPostsInPage(1);
                 },
                 null,
                 () => {

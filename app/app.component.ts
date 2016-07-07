@@ -1,12 +1,12 @@
-import {Component} from 'angular2/core';
-import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
+import {Component} from '@angular/core';
+import {RouteConfig, ROUTER_DIRECTIVES} from '@angular/router-deprecated';
 
 import {HomeComponent} from './home.component';
 import {NavBarComponent} from './navbar.component';
 import {NotFoundComponent} from './not-found.component';
-import {PostsComponent} from './posts.component';
-import {UsersComponent} from './users.component';
-import {UserFormComponent} from './user-form.component';
+import {PostsComponent} from './posts/posts.component';
+import {UsersComponent} from './users/users.component';
+import {UserFormComponent} from './users/user-form.component';
 
 
 @RouteConfig([
