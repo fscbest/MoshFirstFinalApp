@@ -3,11 +3,12 @@ import {Component, OnInit} from 'angular2/core';
 import {SpinnerComponent} from './spinner.component';
 
 import {PostsService} from './posts.service';
+import {UsersService} from './users.service';
 
 
 @Component({
     templateUrl: '/app/posts.template.html',
-    providers: [PostsService],
+    providers: [PostsService, UsersService],
     directives: [SpinnerComponent],
     styles: [`
         .posts	li	{	cursor:	default;	}
@@ -22,23 +23,44 @@ import {PostsService} from './posts.service';
     `]
 })
 export class PostsComponent implements OnInit {
-    posts:any[];
+    posts = [];
+    users = [];
     currentPost;
     isPostsLoading = true;
     isCommentsLoading = true;
 
-    constructor(private _postsService:PostsService) {
+    constructor(
+        private _postsService:PostsService,
+        private _userService: UsersService) {
 
     }
 
     ngOnInit() {
-        this._postsService.getPosts()
+        this.loadUsers();
+        this.loadPosts();
+    }
+
+    loadUsers(){
+        this._userService.getUsers()
+            .subscribe(users => this.users = users);
+    }
+
+    loadPosts(filter?){
+        this.isPostsLoading = true;
+
+        this._postsService.getPosts(filter)
             .subscribe(
                 posts => this.posts = posts,
                 null,
                 () => {
                     this.isPostsLoading = false;
                 });
+    }
+
+    reloadPosts(filter){
+        this.currentPost = null;
+
+        this.loadPosts(filter);
     }
 
     select(post){
