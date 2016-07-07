@@ -5,19 +5,21 @@ import {PostsService} from './posts.service';
     templateUrl: '/app/posts.template.html',
     providers: [PostsService]
 })
-export class PostsComponent implements OnInit{
-    posts: any[];
+export class PostsComponent implements OnInit {
+    posts:any[];
     isLoading = true;
 
-    constructor(private _postsService: PostsService){
+    constructor(private _postsService:PostsService) {
 
     }
 
-    ngOnInit(){
+    ngOnInit() {
         this._postsService.getPosts()
-            .subscribe(posts => {
-                this.posts = posts;
-                this.isLoading = false;
-            });
+            .subscribe(
+                posts => this.posts = posts,
+                null,
+                () => {
+                    this.isLoading = false;
+                });
     }
 }
