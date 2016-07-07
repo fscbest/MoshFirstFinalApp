@@ -29,6 +29,11 @@ export class PostsService{
             .map(res => res.json());
     }
 
+    getComments(postId){
+        return this._http.get(this._url + "/" + postId + "/comments")
+            .map(res => res.json());
+    }
+
     deletePost(postId){
         return this._http.delete(this.getPostUrl(postId))
             .map(res => res.json());
